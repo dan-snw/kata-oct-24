@@ -4,6 +4,6 @@ public static class ChangeCalculator
 {
     public static List<int> GetChange(int changeNeeded, List<int> denominations)
     {
-        return new List<int>();
+        return new List<int>() {0,0,0,0,0,0,0,0};
     }
 }

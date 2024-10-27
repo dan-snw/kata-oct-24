@@ -8,13 +8,9 @@ public static class ChangeCalculator
         var returnList = new List<int>();
         foreach (int coin in reversedDenominations)
         {
-            var numberOfThisCoinNeeded = 0;
-            while (coin <= changeNeeded)
-            {
-                numberOfThisCoinNeeded++;
-                changeNeeded -= coin;
-            }
+            var numberOfThisCoinNeeded = changeNeeded / coin;
             returnList.Add(numberOfThisCoinNeeded);
+            changeNeeded %= coin;
         }
         returnList.Reverse();
         return returnList;

@@ -4,14 +4,15 @@ public static class ChangeCalculator
 {
     public static List<int> GetChange(int changeNeeded, int[] denominations)
     {
+        var reversedDenominations = denominations.Reverse().ToArray();
         var returnList = new List<int>();
-        for(var i = denominations.Length - 1; i >= 0; i--)
+        for (var i = 0; i < denominations.Length; i++)
         {
             var numberOfThisCoinNeeded = 0;
-            while (denominations[i] <= changeNeeded)
+            while (reversedDenominations[i] <= changeNeeded)
             {
                 numberOfThisCoinNeeded++;
-                changeNeeded -= denominations[i];
+                changeNeeded -= reversedDenominations[i];
             }
             returnList.Add(numberOfThisCoinNeeded);
         }

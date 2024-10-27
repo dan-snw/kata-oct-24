@@ -6,13 +6,13 @@ public static class ChangeCalculator
     {
         var reversedDenominations = denominations.Reverse().ToArray();
         var returnList = new List<int>();
-        for (var i = 0; i < denominations.Length; i++)
+        foreach (int coin in reversedDenominations)
         {
             var numberOfThisCoinNeeded = 0;
-            while (reversedDenominations[i] <= changeNeeded)
+            while (coin <= changeNeeded)
             {
                 numberOfThisCoinNeeded++;
-                changeNeeded -= reversedDenominations[i];
+                changeNeeded -= coin;
             }
             returnList.Add(numberOfThisCoinNeeded);
         }

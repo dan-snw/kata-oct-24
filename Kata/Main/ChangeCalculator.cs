@@ -7,15 +7,13 @@ public static class ChangeCalculator
         var returnList = new List<int>();
         for(var i = denominations.Length - 1; i >= 0; i--)
         {
-            if (denominations[i] <= changeNeeded)
+            var numberOfThisCoinNeeded = 0;
+            while (denominations[i] <= changeNeeded)
             {
-                returnList.Add(1);
+                numberOfThisCoinNeeded++;
                 changeNeeded -= denominations[i];
             }
-            else
-            {
-                returnList.Add(0);
-            }
+            returnList.Add(numberOfThisCoinNeeded);
         }
         returnList.Reverse();
         return returnList;

@@ -6,6 +6,10 @@ namespace Tests;
 public class ChangeCalculatorTests
 {
     private static readonly int[] Denominations = [ 1, 2, 5, 10, 20, 50, 100, 200 ];
+   
+    [Fact]
+    public void ChangeCalculator_BaseRecursionCase_ShouldReturnCorrectChange() =>
+        ChangeCalculator.GetChange(1, new[] { 1 }).Should().BeEquivalentTo(new[] { 1 });
     
     [Theory]
     [InlineData(0, new [] { 0, 0, 0, 0, 0, 0, 0, 0 })]

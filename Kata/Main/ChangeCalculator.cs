@@ -9,12 +9,8 @@ public static class ChangeCalculator
             return [changeNeeded / denominations[0]];
         }
         var returnList = new List<int>();
-        foreach (int coin in denominations.Reverse())
-        {
-            returnList.Add(changeNeeded / coin);
-            changeNeeded %= coin;
-        }
-        returnList.Reverse();
+        returnList.AddRange(GetChange(changeNeeded % denominations[^1], denominations.Take(denominations.Length - 1).ToArray()));
+        returnList.Add(changeNeeded / denominations[^1]);
         return returnList.ToArray();
     }
 }

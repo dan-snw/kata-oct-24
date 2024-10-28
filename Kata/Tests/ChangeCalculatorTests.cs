@@ -8,10 +8,10 @@ public class ChangeCalculatorTests
     private static readonly int[] Denominations = [ 1, 2, 5, 10, 20, 50, 100, 200 ];
    
     [Theory]
-    [InlineData(0, new [] { 0 })]
-    [InlineData(1, new [] { 1 })]
-    public void ChangeCalculator_BaseRecursionCase_ShouldReturnCorrectChange(int changeNeeded, int[] expected) =>
-        ChangeCalculator.GetChange(changeNeeded, new[] { 1 }).Should().BeEquivalentTo(expected);
+    [InlineData(0, new int[] { })]
+    [InlineData(1, new int[] { })]
+    public void ChangeCalculator_EmptyArray_ShouldReturnEmptyArray(int changeNeeded, int[] expected) =>
+        ChangeCalculator.GetChange(changeNeeded, []).Should().BeEquivalentTo(expected);
     
     [Theory]
     [InlineData(0, new [] { 0, 0, 0, 0, 0, 0, 0, 0 })]
